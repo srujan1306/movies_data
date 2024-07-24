@@ -1,0 +1,5 @@
+<div class="all-movies-container">
+  @for(movie of movie_list; track $index) {
+  <app-moviedata [movies_data]="movie" />
+  }
+</div>
