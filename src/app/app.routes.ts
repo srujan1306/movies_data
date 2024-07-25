@@ -3,11 +3,12 @@ import { AppComponent } from './app.component';
 import { MovieListComponent } from './movie-list/movie-list.component';
 import { MoviedataComponent } from './movies/movies.component';
 import { CounterComponent } from './like-dislike/like-dislike.component';
+import { HomepageComponent } from './homepage/homepage.component';
 
 export const routes: Routes = [
   {
-    path: '',
-    component: AppComponent,
+    path: 'Home',
+    component: HomepageComponent,
   },
   {
     path: 'movielist',
