@@ -113,4 +113,8 @@ export class MovieListComponent {
     };
     this.movies.push(latestMovie);
   }
+  deletefilm(movie_to_be_deleted: newMovie) {
+    console.log('parent', movie_to_be_deleted);
+    this.movies.splice(this.movies.indexOf(movie_to_be_deleted), 1);
+  }
 }

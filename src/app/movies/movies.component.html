@@ -23,11 +23,10 @@
         <button (click)="showDescription()">Show Description</button>
         <!-- <p class="summary" style="display: none">{{ movies_data.summary }}</p> -->
         @if(show){
-
         <p class="summary">{{ movies_data.summary }}</p>
-
         }
         <app-counter />
+        <button (click)="deleteMovie()">delete</button>
       </div>
     </div>
   </body>

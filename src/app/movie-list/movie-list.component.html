@@ -6,6 +6,9 @@
 
 <div class="all-movies-container">
   @for(movie of movies; track $index) {
-  <app-moviedata [movies_data]="movie" />
+  <app-moviedata
+    [movies_data]="movie"
+    (delete_the_movie)="deletefilm($event)"
+  />
   }
 </div>
