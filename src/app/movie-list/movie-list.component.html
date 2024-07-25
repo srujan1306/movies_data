@@ -1,5 +1,11 @@
-<div class="all-movies-container">
+<!-- <div class="all-movies-container">
   @for(movie of movie_list; track $index) {
+  <app-moviedata [movies_data]="movie" />
+  }
+</div> -->
+
+<div class="all-movies-container">
+  @for(movie of movies; track $index) {
   <app-moviedata [movies_data]="movie" />
   }
 </div>
