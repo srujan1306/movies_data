@@ -20,7 +20,14 @@
           <h1>{{ movies_data.name }}</h1>
           <p class="rating">⭐ {{ movies_data.rating }}</p>
         </div>
+        <button (click)="showDescription()">Show Description</button>
+        <!-- <p class="summary" style="display: none">{{ movies_data.summary }}</p> -->
+        @if(show){
+
         <p class="summary">{{ movies_data.summary }}</p>
+
+        }
+        <app-counter />
       </div>
     </div>
   </body>

@@ -1,5 +1,5 @@
 <!-- <app-moviedata /> -->
-<div>
+<div class="add-movie">
   <form (ngSubmit)="addMovie()">
     <label for="name">Name:</label>
     <input id="name" [(ngModel)]="name" name="name" required />
@@ -21,6 +21,5 @@
 
     <button type="submit">Add Movie</button>
   </form>
-
-  <app-movie-list [movie_list]="movies" />
 </div>
+<app-movie-list [movie_list]="movies" />
