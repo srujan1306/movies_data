@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { RouterLink, RouterOutlet } from '@angular/router';
 import { MoviedataComponent } from './movies/movies.component';
 import { MovieListComponent } from './movie-list/movie-list.component';
 import { FormsModule } from '@angular/forms';
@@ -16,6 +16,7 @@ interface newMovie {
   standalone: true,
   imports: [
     RouterOutlet,
+    RouterLink,
     MoviedataComponent,
     MovieListComponent,
     FormsModule,

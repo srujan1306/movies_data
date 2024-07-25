@@ -1,5 +1,5 @@
 <!-- <app-moviedata /> -->
-<div class="add-movie">
+<!-- <div class="add-movie">
   <form (ngSubmit)="addMovie()">
     <label for="name">Name:</label>
     <input id="name" [(ngModel)]="name" name="name" required />
@@ -21,5 +21,16 @@
 
     <button type="submit">Add Movie</button>
   </form>
-</div>
-<app-movie-list [movie_list]="movies" />
+</div> -->
+<!-- <app-movie-list [movie_list]="movies" /> -->
+<!-- <router-outlet> -->
+<nav>
+  <a routerLink="/">Home</a>
+  |
+  <a routerLink="/movie-list">movie-list</a>
+  |
+  <a routerLink="/movies">movies</a>
+  |
+  <a routerLink="/like-dislike">like-dislike</a>
+</nav>
+<!-- <router-outlet /> -->
