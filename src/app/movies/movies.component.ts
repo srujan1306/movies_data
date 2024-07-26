@@ -2,11 +2,19 @@ import { Component, EventEmitter, Input, Output, output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CounterComponent } from '../like-dislike/like-dislike.component';
 import { newMovie } from '../app.component';
+import { MatButtonModule } from '@angular/material/button';
+import { MatDividerModule } from '@angular/material/divider';
 
 @Component({
   selector: 'app-moviedata',
   standalone: true,
-  imports: [CommonModule, CounterComponent],
+  imports: [
+    CommonModule,
+    CounterComponent,
+    MatButtonModule,
+    MatDividerModule,
+    MatButtonModule,
+  ],
   templateUrl: './movies.component.html',
   styleUrl: './movies.component.scss',
 })

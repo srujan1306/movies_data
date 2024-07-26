@@ -1,17 +1,18 @@
 import { Component, Input } from '@angular/core';
 import { MoviedataComponent } from '../movies/movies.component';
 import { AppComponent, newMovie } from '../app.component';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-movie-list',
   standalone: true,
-  imports: [MoviedataComponent, AppComponent],
+  imports: [MoviedataComponent, AppComponent, FormsModule],
   templateUrl: './movie-list.component.html',
   styleUrl: './movie-list.component.scss',
 })
 export class MovieListComponent {
   // @Input() movie_list: any;
-  movies: Array<newMovie> = [
+  @Input() movies: Array<newMovie> = [
     {
       name: 'Vikram',
       poster:

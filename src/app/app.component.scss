@@ -1,9 +1,7 @@
-.all-movies-container {
+body {
   display: flex;
-  flex-wrap: wrap;
-  gap: 2rem;
 }
-.add-movie {
+nav {
   display: flex;
   flex-direction: column;
 }

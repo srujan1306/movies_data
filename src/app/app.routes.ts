@@ -22,4 +22,8 @@ export const routes: Routes = [
     path: 'like-dislike',
     component: CounterComponent,
   },
+  {
+    path: '**',
+    component: CounterComponent,
+  },
 ];

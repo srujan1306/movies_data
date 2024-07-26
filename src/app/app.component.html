@@ -25,13 +25,13 @@
 <!-- <app-movie-list [movie_list]="movies" /> -->
 <!-- <router-outlet> -->
 <router-outlet>
-  <nav>
-    <a routerLink="/Home">Home</a>
-    |
-    <a routerLink="/movielist">movie-list</a>
-    |
-    <a routerLink="/movies">movies</a>
-    |
-    <a routerLink="/like-dislike">like-dislike</a>
-  </nav>
+  <div class="routes-nav">
+    <nav>
+      <a routerLink="/Home">Home</a>
+      <a routerLink="/movielist">movielist</a>
+      <a routerLink="/movies">movies</a>
+      <a routerLink="/like-dislike">like-dislike</a>
+      <a routerLink="/**"></a>
+    </nav>
+  </div>
 </router-outlet>

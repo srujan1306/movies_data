@@ -20,13 +20,17 @@
           <h1>{{ movies_data.name }}</h1>
           <p class="rating">⭐ {{ movies_data.rating }}</p>
         </div>
-        <button (click)="showDescription()">Show Description</button>
+        <button mat-raised-button (click)="showDescription()">
+          Show Description
+        </button>
         <!-- <p class="summary" style="display: none">{{ movies_data.summary }}</p> -->
         @if(show){
-        <p class="summary">{{ movies_data.summary }}</p>
+        <div class="description">
+          <p class="summary">{{ movies_data.summary }}</p>
+        </div>
         }
         <app-counter />
-        <button (click)="deleteMovie()">delete</button>
+        <button mat-raised-button (click)="deleteMovie()">delete</button>
       </div>
     </div>
   </body>
