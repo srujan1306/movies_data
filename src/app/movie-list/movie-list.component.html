@@ -4,30 +4,8 @@
   }
 </div> -->
 
-<div class="add-movie">
-  <form (ngSubmit)="addMovie()">
-    <div class="add_movie_inputs">
-      <label for="name">Name:</label>
-      <input id="name" [(ngModel)]="name" name="name" required />
-      <label for="poster">Poster URL:</label>
-      <input id="poster" [(ngModel)]="poster" name="poster" required />
-      <label for="rating">Rating:</label>
-      <input
-        id="rating"
-        type="number"
-        [(ngModel)]="rating"
-        name="rating"
-        required
-      />
-      <label for="summary">Summary:</label>
-      <input id="summary" [(ngModel)]="summary" name="summary" required />
-      <button type="submit">Add Movie</button>
-    </div>
-  </form>
-</div>
-
 <div class="all-movies-container">
-  @for(movie of movies; track $index) {
+  @for(movie of movie_list; track $index) {
   <app-moviedata
     [movies_data]="movie"
     (delete_the_movie)="deletefilm($event)"

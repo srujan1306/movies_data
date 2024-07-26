@@ -4,6 +4,8 @@ import { MovieListComponent } from './movie-list/movie-list.component';
 import { MoviedataComponent } from './movies/movies.component';
 import { CounterComponent } from './like-dislike/like-dislike.component';
 import { HomepageComponent } from './homepage/homepage.component';
+import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
+import { AddmovieComponent } from './addmovie/addmovie.component';
 
 export const routes: Routes = [
   {
@@ -15,6 +17,10 @@ export const routes: Routes = [
     component: MovieListComponent,
   },
   {
+    path: 'addmovie',
+    component: AddmovieComponent,
+  },
+  {
     path: 'movies',
     component: MoviedataComponent,
   },
@@ -24,6 +30,6 @@ export const routes: Routes = [
   },
   {
     path: '**',
-    component: CounterComponent,
+    component: PagenotfoundComponent,
   },
 ];
