@@ -95,4 +95,16 @@ export class MovielistService {
   ];
 
   constructor() {}
+
+  addMovie(latestmovie: newMovie) {
+    this.movies.push(latestmovie);
+  }
+
+  deleteMovie(movie_to_be_deleted: newMovie) {
+    this.movies.splice(this.movies.indexOf(movie_to_be_deleted), 1);
+  }
+
+  getmovies() {
+    return this.movies;
+  }
 }
