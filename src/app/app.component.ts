@@ -6,6 +6,7 @@ import { FormsModule } from '@angular/forms';
 import { CounterComponent } from './like-dislike/like-dislike.component';
 
 export interface newMovie {
+  id: number;
   name: string;
   poster: string;
   rating: number;

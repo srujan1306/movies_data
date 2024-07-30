@@ -6,6 +6,7 @@ import { CounterComponent } from './like-dislike/like-dislike.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { AddmovieComponent } from './addmovie/addmovie.component';
+import { MovieDetailsComponent } from './movie-details/movie-details.component';
 
 export const routes: Routes = [
   {
@@ -27,6 +28,10 @@ export const routes: Routes = [
   {
     path: 'like-dislike',
     component: CounterComponent,
+  },
+  {
+    path: 'movielist/:id',
+    component: MovieDetailsComponent,
   },
   {
     path: '**',

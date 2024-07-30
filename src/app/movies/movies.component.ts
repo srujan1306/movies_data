@@ -4,6 +4,8 @@ import { CounterComponent } from '../like-dislike/like-dislike.component';
 import { newMovie } from '../app.component';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDividerModule } from '@angular/material/divider';
+import { MatIconModule } from '@angular/material/icon';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-moviedata',
@@ -14,6 +16,8 @@ import { MatDividerModule } from '@angular/material/divider';
     MatButtonModule,
     MatDividerModule,
     MatButtonModule,
+    MatIconModule,
+    RouterLink,
   ],
   templateUrl: './movies.component.html',
   styleUrl: './movies.component.scss',
@@ -21,6 +25,7 @@ import { MatDividerModule } from '@angular/material/divider';
 export class MoviedataComponent {
   @Input() movies_data: any;
   show = true;
+  id = 0;
   showDescription() {
     this.show = !this.show;
   }

@@ -18,6 +18,13 @@
         <img src="{{ movies_data.poster }}" alt="Extraordinary" />
         <div class="headingAndRating">
           <h1>{{ movies_data.name }}</h1>
+          <button
+            mat-icon-button
+            class="details"
+            routerLink="/movielist/{{ id }}"
+          >
+            <mat-icon>info</mat-icon>
+          </button>
           <p class="rating">⭐ {{ movies_data.rating }}</p>
         </div>
         <button mat-raised-button (click)="showDescription()">
