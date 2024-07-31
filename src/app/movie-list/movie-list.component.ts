@@ -13,9 +13,22 @@ import { MovielistService } from '../movielist.service';
 })
 export class MovieListComponent {
   movie_list: Array<newMovie> = [];
+  isLoading: boolean = true;
+  msg = '';
 
   constructor(public MovielistService: MovielistService) {
-    this.movie_list = this.MovielistService.getmovies();
+    // this.movie_list = this.MovielistService.getmovies();
+  }
+  ngOnInit() {
+    this.MovielistService.getAllMoviesP()
+      .then((data) => {
+        this.movie_list = data;
+        this.isLoading = false;
+      })
+      .catch(() => {
+        this.isLoading = false;
+        this.msg = 'Something went wrong 🥲';
+      });
   }
 
   deletefilm(movie_to_be_deleted: newMovie) {

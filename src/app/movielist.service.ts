@@ -132,4 +132,9 @@ export class MovielistService {
   getMovieByIndex(arg: number): newMovie {
     return this.movies[arg];
   }
+  getAllMoviesP(): Promise<newMovie[]> {
+    return fetch('https://669a42909ba098ed61fef760.mockapi.io/movies').then(
+      (res) => res.json()
+    );
+  }
 }
