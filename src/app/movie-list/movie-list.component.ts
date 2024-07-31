@@ -15,7 +15,7 @@ export class MovieListComponent {
   movie_list: Array<newMovie> = [];
 
   constructor(public MovielistService: MovielistService) {
-    this.movie_list = this.MovielistService.movies;
+    this.movie_list = this.MovielistService.getmovies();
   }
 
   deletefilm(movie_to_be_deleted: newMovie) {

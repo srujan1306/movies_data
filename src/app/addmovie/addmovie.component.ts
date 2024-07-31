@@ -16,7 +16,7 @@ export class AddmovieComponent {
   constructor(public MovielistService: MovielistService) {
     this.movie_list = this.MovielistService.getmovies();
   }
-  id!: string;
+  id!: number;
   name = '';
   poster = '';
   rating = '';
@@ -24,7 +24,7 @@ export class AddmovieComponent {
 
   addMovie() {
     let latestMovie: newMovie = {
-      id: this.id,
+      id: +this.id,
       name: this.name,
       poster: this.poster,
       rating: +this.rating,

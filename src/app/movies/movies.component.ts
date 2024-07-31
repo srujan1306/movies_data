@@ -24,7 +24,7 @@ import { RouterLink } from '@angular/router';
 })
 export class MoviedataComponent {
   @Input() movies_data: any;
-  @Input() id!: string;
+  @Input() id!: number;
   show = true;
   showDescription() {
     this.show = !this.show;
