@@ -20,6 +20,9 @@ export class MovieListComponent {
     // this.movie_list = this.MovielistService.getmovies();
   }
   ngOnInit() {
+    this.loadMovies();
+  }
+  loadMovies() {
     this.MovielistService.getAllMoviesP()
       .then((data) => {
         this.movie_list = data;
@@ -30,9 +33,10 @@ export class MovieListComponent {
         this.msg = 'Something went wrong 🥲';
       });
   }
-
   deletefilm(movie_to_be_deleted: newMovie) {
-    console.log('parent', movie_to_be_deleted);
-    this.MovielistService.deleteMovie(movie_to_be_deleted);
+    // this.MovielistService.deleteMovie(movie_to_be_deleted);
+    this.MovielistService.deleteMovie(movie_to_be_deleted).then(() =>
+      this.loadMovies()
+    );
   }
 }

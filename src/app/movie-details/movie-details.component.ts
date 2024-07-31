@@ -14,19 +14,32 @@ import { newMovie } from '../app.component';
 export class MovieDetailsComponent {
   movie!: newMovie;
   trustedUrl!: SafeUrl;
+  isLoading: boolean = true;
+  msg = '';
 
   constructor(
     private MovielistService: MovielistService,
     private route: ActivatedRoute, // DI
     private sanitizer: DomSanitizer
   ) {
-    let idx = this.route.snapshot.paramMap.get('id') as string; // From URL
-    console.log(idx);
-    this.movie = this.MovielistService.getMovieByIndex(+idx);
-    console.log(this.movie);
-
     // this.trustedUrl = this.sanitizer.bypassSecurityTrustResourceUrl(
     //   this.movie.trailer
     // );
+  }
+  ngOnInit() {
+    let id = this.route.snapshot.paramMap.get('id') as string; // From URL
+
+    this.MovielistService.getMovieByIdP(id)
+      .then((data) => {
+        this.movie = data; // Model
+        this.isLoading = false;
+        this.trustedUrl = this.sanitizer.bypassSecurityTrustResourceUrl(
+          this.movie.trailer
+        );
+      })
+      .catch(() => {
+        this.isLoading = false;
+        this.msg = 'Something went wrong 🥲';
+      });
   }
 }
