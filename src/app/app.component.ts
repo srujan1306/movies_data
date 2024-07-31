@@ -6,11 +6,12 @@ import { FormsModule } from '@angular/forms';
 import { CounterComponent } from './like-dislike/like-dislike.component';
 
 export interface newMovie {
-  id: number;
+  id: string;
   name: string;
   poster: string;
   rating: number;
   summary: string;
+  trailer: string;
 }
 @Component({
   selector: 'app-root',

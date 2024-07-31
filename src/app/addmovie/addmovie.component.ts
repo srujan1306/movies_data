@@ -16,7 +16,7 @@ export class AddmovieComponent {
   constructor(public MovielistService: MovielistService) {
     this.movie_list = this.MovielistService.getmovies();
   }
-  id!: 0;
+  id!: string;
   name = '';
   poster = '';
   rating = '';
@@ -29,6 +29,7 @@ export class AddmovieComponent {
       poster: this.poster,
       rating: +this.rating,
       summary: this.summary,
+      trailer: this.rating,
     };
     this.MovielistService.addMovie(latestMovie);
   }

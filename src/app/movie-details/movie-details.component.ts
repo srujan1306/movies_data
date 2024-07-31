@@ -20,7 +20,7 @@ export class MovieDetailsComponent {
     private route: ActivatedRoute, // DI
     private sanitizer: DomSanitizer
   ) {
-    let idx = this.route.snapshot.paramMap.get('id') || 0; // From URL
+    let idx = this.route.snapshot.paramMap.get('id') as string; // From URL
     console.log(idx);
     this.movie = this.MovielistService.getMovieByIndex(+idx);
     console.log(this.movie);
