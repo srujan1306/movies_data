@@ -27,7 +27,7 @@ import { routes } from '../app.routes';
 })
 export class MoviedataComponent {
   @Input() movies_data: any;
-  @Input() id!: number;
+  @Input() movieId!: string;
   show = true;
   constructor(private route: Router) {}
   showDescription() {

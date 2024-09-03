@@ -21,10 +21,7 @@ export const routes: Routes = [
     path: 'addmovie',
     component: AddmovieComponent,
   },
-  {
-    path: 'movies',
-    component: MoviedataComponent,
-  },
+
   {
     path: 'like-dislike',
     component: CounterComponent,

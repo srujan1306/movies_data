@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import { newMovie } from './app.component';
+import { Router } from '@angular/router';
 
 // const API = 'https://669a42909ba098ed61fef760.mockapi.io';
-// const API = 'http://localhost:4000';
+// const API = 'http://localhost:3000';
 const API = 'https://node-examples-13p9.onrender.com';
 
 @Injectable({
@@ -11,7 +12,7 @@ const API = 'https://node-examples-13p9.onrender.com';
 export class MovielistService {
   movies: Array<newMovie> = [
     {
-      id: 99,
+      movieId: '99',
       name: 'Vikram',
       poster:
         'https://m.media-amazon.com/images/M/MV5BMmJhYTYxMGEtNjQ5NS00MWZiLWEwN2ItYjJmMWE2YTU1YWYxXkEyXkFqcGdeQXVyMTEzNzg0Mjkx._V1_.jpg',
@@ -21,7 +22,7 @@ export class MovielistService {
       trailer: 'https://www.youtube.com/embed/OKBMCL-frPU',
     },
     {
-      id: 100,
+      movieId: '100',
       name: 'RRR',
       poster:
         'https://englishtribuneimages.blob.core.windows.net/gallary-content/2021/6/Desk/2021_6$largeimg_977224513.JPG',
@@ -31,7 +32,7 @@ export class MovielistService {
       trailer: 'https://www.youtube.com/embed/f_vbAtFSEc0',
     },
     {
-      id: 101,
+      movieId: '101',
       name: 'Iron man 2',
       poster:
         'https://m.media-amazon.com/images/M/MV5BMTM0MDgwNjMyMl5BMl5BanBnXkFtZTcwNTg3NzAzMw@@._V1_FMjpg_UX1000_.jpg',
@@ -41,7 +42,7 @@ export class MovielistService {
       trailer: 'https://www.youtube.com/embed/wKtcmiifycU',
     },
     {
-      id: 102,
+      movieId: '102',
       name: 'No Country for Old Men',
       poster:
         'https://upload.wikimedia.org/wikipedia/en/8/8b/No_Country_for_Old_Men_poster.jpg',
@@ -51,7 +52,7 @@ export class MovielistService {
       trailer: 'https://www.youtube.com/embed/38A__WT3-o0',
     },
     {
-      id: 103,
+      movieId: '103',
       name: 'Jai Bhim',
       poster:
         'https://m.media-amazon.com/images/M/MV5BY2Y5ZWMwZDgtZDQxYy00Mjk0LThhY2YtMmU1MTRmMjVhMjRiXkEyXkFqcGdeQXVyMTI1NDEyNTM5._V1_FMjpg_UX1000_.jpg',
@@ -61,7 +62,7 @@ export class MovielistService {
       trailer: 'https://www.youtube.com/embed/nnXpbTFrqXA',
     },
     {
-      id: 104,
+      movieId: '104',
       name: 'The Avengers',
       rating: 8,
       summary:
@@ -71,7 +72,7 @@ export class MovielistService {
       trailer: 'https://www.youtube.com/embed/eOrNdBpGMv8',
     },
     {
-      id: 105,
+      movieId: '105',
       name: 'Interstellar',
       poster: 'https://m.media-amazon.com/images/I/A1JVqNMI7UL._SL1500_.jpg',
       rating: 8.6,
@@ -80,7 +81,7 @@ export class MovielistService {
       trailer: 'https://www.youtube.com/embed/zSWdZVtXT7E',
     },
     {
-      id: 106,
+      movieId: '106',
       name: 'Baahubali',
       poster: 'https://flxt.tmsimg.com/assets/p11546593_p_v10_af.jpg',
       rating: 8,
@@ -89,7 +90,7 @@ export class MovielistService {
       trailer: 'https://www.youtube.com/embed/sOEg_YZQsTI',
     },
     {
-      id: 107,
+      movieId: '107',
       name: 'Ratatouille',
       poster:
         'https://resizing.flixster.com/gL_JpWcD7sNHNYSwI1ff069Yyug=/ems.ZW1zLXByZC1hc3NldHMvbW92aWVzLzc4ZmJhZjZiLTEzNWMtNDIwOC1hYzU1LTgwZjE3ZjQzNTdiNy5qcGc=',
@@ -106,7 +107,7 @@ export class MovielistService {
         'Ponniyin Selvan: I is an upcoming Indian Tamil-language epic period action film directed by Mani Ratnam, who co-wrote it with Elango Kumaravel and B. Jeyamohan',
       rating: 8,
       trailer: 'https://www.youtube.com/embed/KsH2LA8pCjo',
-      id: 108,
+      movieId: '108',
     },
     {
       name: 'Thor: Ragnarok',
@@ -116,20 +117,29 @@ export class MovielistService {
         'When Earth becomes uninhabitable in the future, a farmer and ex-NASA\\n pilot, Joseph Cooper, is tasked to pilot a spacecraft, along with a team\\n of researchers, to find a new planet for humans.',
       rating: 8.8,
       trailer: 'https://youtu.be/NgsQ8mVkN8w',
-      id: 109,
+      movieId: '109',
     },
   ];
 
-  constructor() {}
+  constructor(private router: Router) {}
 
-  addMovie(latestmovie: newMovie) {
-    this.movies.push(latestmovie);
+  addMovie(formData: FormData) {
+    return fetch(`${API}/movies`, {
+      method: 'POST',
+      body: formData,
+    })
+      .then((res) => res.json())
+      .then(() => this.router.navigate(['/movielist']))
+      .catch((error) => {
+        console.error('Error: adding movie failed', error);
+        throw error; // Rethrow error to handle it in the component if needed
+      });
   }
 
   deleteMovie(movie_to_be_deleted: newMovie) {
     // this.movies.splice(this.movies.indexOf(movie_to_be_deleted), 1);
     console.log('hi');
-    console.log(movie_to_be_deleted.id);
+    console.log(movie_to_be_deleted.movieId);
 
     // return fetch(
     //   `https://669a42909ba098ed61fef760.mockapi.io/movies/${movie_to_be_deleted.id}`,
@@ -139,7 +149,7 @@ export class MovielistService {
     // ).then((res) => res.json());
 
     // return fetch(`${API}/moviesdata/${movie_to_be_deleted.id}`, {
-    return fetch(`${API}/movies/del/${movie_to_be_deleted.id}`, {
+    return fetch(`${API}/movies/del/${movie_to_be_deleted.movieId}`, {
       method: 'DELETE',
     }).then((res) => res.json());
   }

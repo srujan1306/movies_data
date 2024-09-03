@@ -1,21 +1,41 @@
-<div class="add-movie">
-  <form (ngSubmit)="addMovie()">
-    <div class="add_movie_inputs">
-      <label for="name">Name:</label>
-      <input id="name" [(ngModel)]="name" name="name" required />
-      <label for="poster">Poster URL:</label>
-      <input id="poster" [(ngModel)]="poster" name="poster" required />
-      <label for="rating">Rating:</label>
-      <input
-        id="rating"
-        type="number"
-        [(ngModel)]="rating"
-        name="rating"
-        required
-      />
-      <label for="summary">Summary:</label>
-      <input id="summary" [(ngModel)]="summary" name="summary" required />
-      <button type="submit">Add Movie</button>
+<form [formGroup]="movieForm" (ngSubmit)="addMovie()" class="add-movie-form">
+  <div class="add_movie">
+    <div>
+      <mat-form-field>
+        <mat-label>Movie Name</mat-label>
+        <input matInput formControlName="name" />
+      </mat-form-field>
     </div>
-  </form>
-</div>
+    <div class="file_upload">
+      <label for="image">Upload Thumbnail of the movie</label>
+      <input
+        id="image"
+        type="file"
+        formControlName="file"
+        (change)="onFileChange($event)"
+      />
+    </div>
+
+    <div>
+      <mat-form-field>
+        <mat-label>Rating</mat-label>
+        <input matInput formControlName="rating" />
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field>
+        <mat-label>Summary</mat-label>
+        <input matInput formControlName="summary" />
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field>
+        <mat-label>Trailer Link</mat-label>
+        <input matInput formControlName="trailer" />
+      </mat-form-field>
+    </div>
+    <div class="submit">
+      <button mat-raised-button type="submit">Submit</button>
+    </div>
+  </div>
+</form>
