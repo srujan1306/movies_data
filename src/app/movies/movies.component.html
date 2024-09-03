@@ -1,44 +1,21 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
-      integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
-  </head>
-  <body>
-    <div class="wholecontainer">
-      <div class="container">
-        <img src="{{ movies_data.poster }}" alt="Extraordinary" />
-        <div class="headingAndRating">
-          <h1>{{ movies_data.name }}</h1>
-          <button
-            mat-icon-button
-            class="details"
-            routerLink="/movielist/{{ id }}"
-          >
-            <mat-icon>info</mat-icon>
-          </button>
-          <p class="rating">⭐ {{ movies_data.rating }}</p>
-        </div>
-        <button mat-raised-button (click)="showDescription()">
-          Show Description
-        </button>
-        <!-- <p class="summary" style="display: none">{{ movies_data.summary }}</p> -->
-        @if(show){
-        <div class="description">
-          <p class="summary">{{ movies_data.summary }}</p>
-        </div>
-        }
-        <app-counter />
-        <button mat-raised-button (click)="deleteMovie()">delete</button>
-      </div>
+<div class="movie_card">
+  <div class="image_con">
+    <img src="{{ movies_data.poster }}" alt="Thumbnail of the movie" />
+  </div>
+  <div class="name_info_rating">
+    <div class="name_info">
+      <h1>{{ movies_data.name }}</h1>
+      <button
+        mat-icon-button
+        class="details"
+        routerLink="/movielist/{{ movies_data.movieId }}"
+      >
+        <mat-icon>info</mat-icon>
+      </button>
     </div>
-  </body>
-</html>
+    <p class="rating">⭐ {{ movies_data.rating }}</p>
+  </div>
+  <div class="delete">
+    <button mat-raised-button (click)="deleteMovie()">delete</button>
+  </div>
+</div>

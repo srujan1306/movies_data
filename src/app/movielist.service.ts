@@ -1,7 +1,10 @@
 import { Injectable } from '@angular/core';
 import { newMovie } from './app.component';
 
-const API = 'https://669a42909ba098ed61fef760.mockapi.io';
+// const API = 'https://669a42909ba098ed61fef760.mockapi.io';
+// const API = 'http://localhost:4000';
+const API = 'https://node-examples-13p9.onrender.com';
+
 @Injectable({
   providedIn: 'root',
 })
@@ -135,7 +138,8 @@ export class MovielistService {
     //   }
     // ).then((res) => res.json());
 
-    return fetch(`${API}/moviesdata/${movie_to_be_deleted.id}`, {
+    // return fetch(`${API}/moviesdata/${movie_to_be_deleted.id}`, {
+    return fetch(`${API}/movies/del/${movie_to_be_deleted.id}`, {
       method: 'DELETE',
     }).then((res) => res.json());
   }
@@ -147,9 +151,11 @@ export class MovielistService {
     return this.movies[arg];
   }
   getMovieByIdP(id: string): Promise<newMovie> {
-    return fetch(`${API}/moviesdata/${id}`).then((res) => res.json());
+    // return fetch(`${API}/moviesdata/${id}`).then((res) => res.json());
+    return fetch(`${API}/movies/${id}`).then((res) => res.json());
   }
   getAllMoviesP(): Promise<newMovie[]> {
-    return fetch(`${API}/moviesdata`).then((res) => res.json());
+    // return fetch(`${API}/moviesdata`).then((res) => res.json());
+    return fetch(`${API}/movies`).then((res) => res.json());
   }
 }

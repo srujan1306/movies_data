@@ -1,38 +1,9 @@
-<!-- <app-moviedata /> -->
-<!-- <div class="add-movie">
-  <form (ngSubmit)="addMovie()">
-    <label for="name">Name:</label>
-    <input id="name" [(ngModel)]="name" name="name" required />
-
-    <label for="poster">Poster URL:</label>
-    <input id="poster" [(ngModel)]="poster" name="poster" required />
-
-    <label for="rating">Rating:</label>
-    <input
-      id="rating"
-      type="number"
-      [(ngModel)]="rating"
-      name="rating"
-      required
-    />
-
-    <label for="summary">Summary:</label>
-    <input id="summary" [(ngModel)]="summary" name="summary" required />
-
-    <button type="submit">Add Movie</button>
-  </form>
-</div> -->
-<!-- <app-movie-list [movie_list]="movies" /> -->
-<!-- <router-outlet> -->
-<router-outlet>
-  <div class="routes-nav">
-    <nav>
-      <a routerLink="/Home">Home</a>
-      <a routerLink="/movielist">movielist</a>
-      <a routerLink="/addmovie">addmovies</a>
-      <a routerLink="/movies">movies</a>
-      <a routerLink="/like-dislike">like-dislike</a>
-      <a routerLink="/**"></a>
-    </nav>
-  </div>
-</router-outlet>
+<div class="topnav">
+  <a routerLink="/Home">Home</a>
+  <a routerLink="/movielist">movielist</a>
+  <a routerLink="/addmovie">addmovies</a>
+  <a routerLink="/movies">movies</a>
+  <a routerLink="/like-dislike">like-dislike</a>
+  <a routerLink="/**"></a>
+</div>
+<router-outlet></router-outlet>
